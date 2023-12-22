@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+    <head>
+        <title>Course List</title>
+<link href="{% static 'image/icon1.jpg' %}"
+ rel="icon">
+ <link href="{% static 'css/style1.css' %}" 
+  rel="stylesheet">
+    </head>
+    <body>
+        <div id="maindiv">
+<div id="header">
+<div id="head1">
+<marquee direction="right">
+    Css Template
+</marquee>    
+</div>
+
+  <img src=" {% static 'image/logo1.jpg' %}"
+   id="logo1">
+   <img src=" {% static 'image/logo2.jpg' %}"
+   id="logo2">
+</div>
+<!-- <div id="menu">
+<a href="">home</a>
+<a href="#">about us</a>
+<a href="/userlist/">user list</a>
+<a href="/Register/">register</a>
+<a href="#">login</a>
+</div> -->
+{% include 'menu.html' %}
+<div id="content">
+    <table border="1" align="center">
+    <tr>
+        <th>Course id</th>
+        <th>Course Name</th>
+        <th>Duration </th>
+        <th>Fees</th>
+        <th>img</th>
+    </tr>
+    {% for x in res %}
+    <tr>
+        <th> {{ x.courseid }} </th>
+        <th>{{ x.nm }}</th>
+        <th>{{ x.duration }}</th>
+        <th>{{ x.fees }}</th>
+        <th>
+           <img src="{{ media_url }}{{ x.courseicon }}" alt="this is course icon" height="50px" width="80px">
+        </th>
+    </tr>
+   {% endfor %}
+    </table>
+</div>
+<div id="footer">
+<div align="center" 
+style="color:white">
+ &copy;css template-2023
+</div>
+</div>
+        </div>
+    </body>
+</html>
